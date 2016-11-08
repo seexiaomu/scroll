@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1{width: 100px; height: 100px; background-color: yellow; position: absolute;right: 0;}
+		body {height: 2000px;}
+	</style>
+	<script>
+			window.onload = window.onscroll = function (){
+				var odiv = document.getElementById('div1');
+				var scrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+				var t = (document.documentElement.clientHeight-odiv.offsetHeight)/2;
+				odiv.style.top = scrollTop + t + 'px';
+				//做一个定时器用来滑动
+				//setTimeout(,1000);		
+			};
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>
