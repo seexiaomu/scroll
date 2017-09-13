@@ -106,7 +106,10 @@
     			return word; 			
 			}
 			console.log(count(str1));
-
+			//indexOf：是数组的元素存在性检查方法。需要遍历所有元素来检查，此方法的时间复杂度是O(n)。
+			//hasOwnProperty：是对象的属性(名称)存在性检查方法。对象的属性可以基于Hash表实现，因此对属性进行访问的时间复杂度可以达到O(1)。
+			//后者速度大于前者
+			//hasOwnProperty：判断对象是否有某个特定的属性，(注意说的是对象的属性，而不是对象原型的属性)必须用字符串指定该属性。
 		}
 	</script>
 	<!-- <link rel="import" href="task.htm"> -->
@@ -116,5 +119,6 @@
 	<a href="bb/xxx.html">bb</a>
 	#include file="task.htm"
 	<a href="http://www.baidu.com" style="color: #fff;display: block;width: 100px;line-height: 40px;text-align:center;background-color: pink;border-radius: 4px;text-decoration: none;">亲自试一试</a>
+	<a href="http://blog.csdn.net/u012172536/article/details/51849975">js中的hasOwnProperty和isPrototypeOf方法使用实例</a>
 </body>
 </html>
