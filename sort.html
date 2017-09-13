@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>基本排序</title>
+	<!-- 规定页面中所有链接的基准 url -->
+	<!-- <base href="http://www.xiaomu.com"> -->
+	<script>
+		window.onload = function () {
+			//swap()方法定义
+			function swap(myArray,p1,p2) {
+				let value = myArray[p1];
+				myArray[p1] = myArray[p2];
+				myArray[p2] = value;
+			}
+
+			//冒泡排序
+			function bubbleSort(myArray) {
+				for (var i = 0; i < myArray.length; i++) {
+					for (var j = 0; j < myArray.length-1-i; j++) {
+						if (myArray[j] > myArray[j+1]) {
+							// myArray [j] = myArray[i];
+							swap(myArray,j,j+1);
+						}
+					}
+				}
+				return myArray;
+			}
+			//选择排序
+			function selectSort(myArray) {
+				for (var i = 0; i < myArray.length; i++) {
+					for(var j = i+1; j < myArray.length; j++) {
+						var min = myArray[i];
+						if (myArray[j] < min) {
+							min = myArray[j];
+						}
+					}
+				}
+				return myArray;
+			}
+			//插入排序
+			function insertSort(myArray) {
+				for (var i = 0; i < myArray.length; i++) {
+					//用values来存储当前的值
+					var values = myArray[i];
+					for (var j = i-1; j >= 0 && myArray[j] > values; j--) {
+						myArray[j+1] = myArray[j];
+						myArray[j] = values;
+					}
+				}
+				return myArray;
+			}
+			//归并排序  效率为O(n log n)
+			// function mergerSort(myArray) {
+				
+			// }
+
+			var myArray = [6,4,8,9,2,7,5,1];
+			console.log(bubbleSort(myArray));
+			console.log(selectSort(myArray));
+			console.log(insertSort(myArray));
+
+
+
+
+			//数组去重
+			var arr1 = [false, true, undefined, null, NaN, 0, 1, {}, {}, 'a', 'a', NaN];
+			Array.prototype.uniq = function () {
+    			var item = [];
+    			var test = true;
+    			for(let i = 0; i < this.length; i++) {
+        			if(item.indexOf(this[i]) == -1) {
+            			if(this[i] != this[i]) {
+            				if(test) {
+            					item.push(this[i]);
+            					test = false;
+            				}               			
+            			}
+            			else {
+            				item.push(this[i]);
+            			}
+        			}
+    			}
+    			return item;
+			}
+			console.log(arr1.uniq());
+
+
+
+			//统计字符串出现的频率
+			//动态定义二维数组可以先声明一维数组然后......
+			var str1 = 'hello world';		
+			function count(str) {
+				//正则中/s代表空格符
+				str = str.replace(/\s/g,'');
+    			var word = {},count = 0;
+				for(let i = 0; i < str.length; i++) {	
+					// 对象的hasOwnProperty比数组的indexOf性能高			
+        			if(word.hasOwnProperty(str[i])) {        				
+        				word[str[i]] += 1;
+        			} 
+        			else {
+        				word[str[i]] = 1;
+        			}    
+    			}  
+    			return word; 			
+			}
+			console.log(count(str1));
+
+		}
+	</script>
+	<!-- <link rel="import" href="task.htm"> -->
+</head>
+<body>
+	<a href="/aa/xxx.html">aa</a>
+	<a href="bb/xxx.html">bb</a>
+	#include file="task.htm"
+	<a href="http://www.baidu.com" style="color: #fff;display: block;width: 100px;line-height: 40px;text-align:center;background-color: pink;border-radius: 4px;text-decoration: none;">亲自试一试</a>
+</body>
+</html>
